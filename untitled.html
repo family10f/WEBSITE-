@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAMILY 10F</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;      
+      background: url('https://i.imgur.com/IDWbPqT.jpeg') no-repeat center center fixed;
+      background-size: cover; /* cover the whole page */
+      color: #fff;
+
+    }
+    input, textarea, button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+    textarea, input {
+      background-color: #fff;
+    }
+    button {
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px #3e8e41;
+    }
+    button:hover {
+      background-color: #45a049;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 6px #3e8e41;
+    }
+    button:active {
+      transform: translateY(2px) scale(0.98);
+      box-shadow: 0 2px #3e8e41;
+    }
+    #output {
+      margin-top: 20px;
+      white-space: pre-wrap;
+      border: 1px solid #ccc;
+      padding: 10px;
+      min-height: 100px;
+      opacity: 0;
+      transition: opacity 0.5s ease-in;
+      background-color: #8a0c0c; /* light background for output */
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>បង្កើតចំនួនអក្សរ</h1>
+  
+  <label for="textInput">បញ្ចូលអក្សរ (1-10000) :</label>
+  <textarea id="textInput" rows="4" placeholder="សរសេរនៅទីនេះ"></textarea>
+  
+  <label for="repeatCount">ចំនួនអក្សរដែរចង់ចម្លង:</label>
+  <input type="number" id="repeatCount" value="1" min="1" max="10000">
+  
+  <button onclick="repeatText()">បង្កើត</button>
+  <button onclick="copyOutput()">ចម្លង</button>
+  
+  <div id="output"></div>
+  
+  <script>
+    function repeatText() {
+      const text = document.getElementById('textInput').value;
+      let count = parseInt(document.getElementById('repeatCount').value);
+      
+      if (!text) {
+        alert("មិនអាចបង្កើតបានទេ!");
+        return;
+      }
+      
+      if (isNaN(count) || count < 1) count = 1;
+      if (count > 10000) count = 10000;
+      
+      let result = '';
+      for (let i = 0; i < count; i++) {
+        result += text + '\n';
+      }
+      
+      const output = document.getElementById('output');
+      output.textContent = result;
+      
+      // Apply fade-in effect
+      output.style.opacity = 0;
+      setTimeout(() => {
+        output.style.opacity = 1;
+      }, 10);
+    }
+    
+    function copyOutput() {
+      const output = document.getElementById('output');
+      navigator.clipboard.writeText(output.textContent)
+        .then(() => alert("បានចម្លង!"))
+        .catch(() => alert("មិនអាចចម្លងបានទេ!"));
+    }
+  </script>
+</body>
+</html>

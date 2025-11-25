@@ -8,7 +8,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 40px;      
-      background: url('https://i.imgur.com/IDWbPqT.jpeg') no-repeat center center fixed;
+      background:  no-repeat center center fixed;
       background-size: cover; /* cover the whole page */
       color: #fff;
 
@@ -52,11 +52,69 @@
       transition: opacity 0.5s ease-in;
       background-color: #8a0c0c; /* light background for output */
       border-radius: 5px;
+    }    .welcome-message {
+      font-size: 2.8rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #5865f2, #00c3ff, #2c5364, #fff, #5865f2);
+      background-size: 300% auto;
+      color: #fff;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+      letter-spacing: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: .15em solid #fff;
+      width: 0;
+      opacity: 1;
+      filter: drop-shadow(0 0 12px #5865f2) drop-shadow(0 0 24px #00c3ff);
+      animation:
+        typing 2.2s steps(25, end) 0.2s forwards,
+        blink-caret 0.7s step-end infinite,
+        welcomeGradient 3s linear infinite 2.4s;
     }
-  </style>
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 22ch }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #fff; }
+    }
+    @keyframes welcomeGradient {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes textPulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translate(-50%, 100%); opacity: 0; }
+            to { transform: translate(-50%, -50%); opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
 </head>
 <body>
-  <h1>បិទវិញហើយ</h1>
+        <h1 class="welcome-message">CLASS 10F</h1></h1>
   
 </body>
 </html>

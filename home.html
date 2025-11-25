@@ -56,51 +56,7 @@
   </style>
 </head>
 <body>
-  <h1>បង្កើតចំនួនអក្សរ</h1>
+  <h1>បិទវិញហើយ</h1>
   
-  <label for="textInput">ប្រអប់សម្រាប់ដាក់អក្សរ:</label>
-  <textarea id="textInput" rows="4" placeholder="សរសេរនៅទីនេះ ឧទាហរណ៍: [សុទ្ធតែដី]"></textarea>
-  
-  <label for="repeatCount">ចំនួនអក្សរដែរចង់ចម្លង:</label>
-  <input type="number" id="repeatCount" value="100" min="1" max="1000000000">
-  
-  <button onclick="repeatText()">បង្កើត</button>
-  <button onclick="copyOutput()">ចម្លង</button>
-  
-  <div id="output"></div>
-  
-  <script>
-    function repeatText() {
-      const text = document.getElementById('textInput').value;
-      let count = parseInt(document.getElementById('repeatCount').value);
-      
-      if (!text) {
-        alert("មិនអាចបង្កើតបានទេ!");
-        return;
-      }
-      
-      if (isNaN(count) || count < 1) count = 1;
-      if (count > 1000000000) count = 1000000000;
-      
-      let result = '';
-      for (let i = 0; i < count; i++) {
-        result += text + '\n';
-      }
-      
-      const output = document.getElementById('output');
-      output.textContent = result;
-      
-      // Apply fade-in effect
-      output.style.opacity = 0;
-      setTimeout(() => {
-        output.style.opacity = 1;
-      }, 10);
-    }
-    
-    function copyOutput() {
-      const output = document.getElementById('output');
-      navigator.clipboard.writeText(output.textContent)
-    }
-  </script>
 </body>
 </html>
